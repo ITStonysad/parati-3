@@ -1,0 +1,46 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Carta - Final</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    #Content {
+      font-size: 1.5em;
+      color: white;
+      text-align: center;
+      margin-top: 20vh;
+      padding: 0 30px;
+      transition: opacity 1s ease;
+    }
+  </style>
+</head>
+<body>
+  <div id="bodyblur"><img src="midias/fundo1.jpg" alt="Fondo romántico"></div>
+  <div id="Content">Cargando...</div>
+  <script>
+    window.addEventListener("DOMContentLoaded", () => {
+      const frases = [
+        "Esta es la última parte... 🥺",
+        "Pero mi amor por ti no termina aquí.",
+        "Gracias por tomarte el tiempo de leer cada palabra.",
+        "Gracias por existir.",
+        "Te amo con todo lo que soy ❤️",
+        "Siempre tuyo/a."
+      ];
+      const content = document.getElementById("Content");
+      let i = 0;
+      function mostrarFrase() {
+        if (i < frases.length) {
+          content.innerHTML = `<p>${frases[i]}</p>`;
+          i++;
+          setTimeout(mostrarFrase, 4000);
+        }
+      }
+      content.style.opacity = "1";
+      mostrarFrase();
+    });
+  </script>
+</body>
+</html>

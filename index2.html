@@ -1,0 +1,49 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Carta - Parte 2</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    #Content {
+      font-size: 1.5em;
+      color: white;
+      text-align: center;
+      margin-top: 20vh;
+      padding: 0 30px;
+      transition: opacity 1s ease;
+    }
+  </style>
+</head>
+<body>
+  <div id="bodyblur"><img src="midias/fundo1.jpg" alt="Fondo romántico"></div>
+  <div id="Content">Cargando...</div>
+  <script>
+    window.addEventListener("DOMContentLoaded", () => {
+      const frases = [
+        "Hola otra vez, mi amor ❤️",
+        "¿Sabías que cada vez que pienso en ti, sonrío?",
+        "No hay día que no agradezca por tenerte en mi vida.",
+        "Esta segunda parte es solo para recordarte...",
+        "Que te amo con cada parte de mí 💖"
+      ];
+      const content = document.getElementById("Content");
+      let i = 0;
+      function mostrarFrase() {
+        if (i < frases.length) {
+          content.innerHTML = `<p>${frases[i]}</p>`;
+          i++;
+          setTimeout(mostrarFrase, 4000);
+        } else {
+          setTimeout(() => {
+            window.parent.postMessage("pasar-a-index3", "*");
+          }, 4000);
+        }
+      }
+      content.style.opacity = "1";
+      mostrarFrase();
+    });
+  </script>
+</body>
+</html>
